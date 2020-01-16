@@ -87,8 +87,7 @@ public function manage_car(){
 
 	$data=array();
 	$data['all_car']=$this->car_model->select_all_car();
-
-	$data['admin_maincontent'] =  $this->load->view('admin/admin_pages/manage_car',$data,TRUE);
+    $data['admin_maincontent'] =  $this->load->view('admin/admin_pages/manage_car',$data,TRUE);
 	$this->load->view('admin/admin_master',$data);
 
 
