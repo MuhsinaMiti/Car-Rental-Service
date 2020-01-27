@@ -2,82 +2,82 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin_login extends CI_Controller {
-	public function __construct() {
-		parent:: __construct();
-	    $this->load->model('admin_model');
+  public function __construct() {
+    parent:: __construct();
+      $this->load->model('admin_model');
 
-	}
+  }
 
-	
-	public function index()
+  
+  public function index()
 
-	{  if(isset($this->session->user_id)){
-		redirect('admin-dashboard');
-	}  else{
+  {  if(isset($this->session->user_id)){
+    redirect('admin-dashboard');
+  }  else{
       $this->load->view('admin/admin_login');
-	}
+  }
 
-	}
+  }
 
 public function check_admin_login()
 
-	{    $user_email = $this->input->post('user_email',TRUE);
-	     $user_password = $this->input->post('user_password',TRUE); 
-	     
-	     $user_detail = $this->admin_model->get_user_detail($user_email);
-	     
-	     
-	     if(password_verify($user_password, $user_detail->user_password)){
-	     	if($user_detail->user_status==1){
+  {    $user_email = $this->input->post('user_email',TRUE);
+       $user_password = $this->input->post('user_password',TRUE); 
+       
+       $user_detail = $this->admin_model->get_user_detail($user_email);
+       
+       
+       if(password_verify($user_password, $user_detail->user_password)){
+        if($user_detail->user_status==1){
 
-	     		$session_data['user_email'] = $user_detail->user_email;
-	     		$session_data['user_status'] = $user_detail->user_status;
-	     		$session_data['user_role'] = $user_detail->user_role;
-	     		$session_data['user_id'] = $user_detail->user_id;
-	     		$this->session->set_userdata($session_data);
-	     		redirect('admin-dashboard');
-	     		
+          $session_data['user_email'] = $user_detail->user_email;
+          $session_data['user_status'] = $user_detail->user_status;
+          $session_data['user_role'] = $user_detail->user_role;
+          $session_data['user_id'] = $user_detail->user_id;
+          $this->session->set_userdata($session_data);
+          redirect('admin-dashboard');
+          
 
            }else{
                 
-	     	$data['error_message'] = 'Not a Valid User';
-	     	$this->session->set_userdata($data);
-	     	redirect ('admin');
+        $data['error_message'] = 'Not a Valid User';
+        $this->session->set_userdata($data);
+        redirect ('admin');
 
-	     }
-	     	
+       }
+        
 
-	     	
+        
 
-	     }else{
-	     	 //redirect('admin');
-	     	$data['error_message'] = 'Incorrect Email or Password';
-	     	$this->session->set_userdata($data);
-	     	redirect ('admin');
-
-
-	     }
+       }else{
+         //redirect('admin');
+        $data['error_message'] = 'Incorrect Email or Password';
+        $this->session->set_userdata($data);
+        redirect ('admin');
 
 
+       }
 
 
 
-	     } 
 
-	     
 
-	
+       } 
+
+       
+
+  
 //Admin logout
 
 
  public function check_admin_logout(){
 
-	     	$this->session->sess_destroy();
-	     	redirect('admin');
-		
+        $this->session->sess_destroy();
+        redirect('admin');
+    
       
     }
-	
+  
 
 
 
