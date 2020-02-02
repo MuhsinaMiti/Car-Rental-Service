@@ -4,9 +4,9 @@
   
   <!-- start: Meta -->
   <meta charset="utf-8">
-  <title>Bootstrap Metro Dashboard by Dennis Ji for ARM demo</title>
+  <title>Login</title>
   <meta name="description" content="Bootstrap Metro Dashboard">
-  <meta name="author" content="Dennis Ji">
+  <meta name="author" content="">
   <meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
   <!-- end: Meta -->
   
@@ -34,7 +34,7 @@
   <![endif]-->
     
   <!-- start: Favicon -->
-  <link rel="shortcut icon" href="<?php echo base_url()?>assets/admin_assets/img/favicon.ico">
+  <link rel="shortcut icon" href="<?php echo base_url()?>assets/admin_assets/img/favicon.png">
   <!-- end: Favicon -->
   
       <style type="text/css">
@@ -55,19 +55,43 @@
             <a href="<?php echo base_url()?>"><i class="halflings-icon home"></i></a>
             <a href="#"><i class="halflings-icon cog"></i></a>
           </div>
+
+
           <h2>Login to your account</h2>
-          <form class="form-horizontal" action="<?php echo base_url()?>admin/check_admin_login" method="post">
+
+
+        
+        <h3 style="color:red"> 
+       <!-- <p class="text-warning"> -->
+
+           <?php
+           $error_message = $this->session->userdata('error_message');
+           if($error_message)
+           {
+              echo $error_message;
+              $this->session->unset_userdata('error_message');
+
+           }
+
+
+           ?>  
+         
+        </h3> 
+
+
+
+          <form class="form-horizontal" action="<?php echo base_url()?>admin-login" method="post">
             <fieldset>
               
               <div class="input-prepend" title="Username">
                 <span class="add-on"><i class="halflings-icon user"></i></span>
-                <input class="input-large span10" name="username" id="username" type="text" placeholder="type username"/>
+                <input class="input-large span10" name="user_email" id="username" type="text" placeholder="type username"/>
               </div>
               <div class="clearfix"></div>
 
               <div class="input-prepend" title="Password">
                 <span class="add-on"><i class="halflings-icon lock"></i></span>
-                <input class="input-large span10" name="password" id="password" type="password" placeholder="type password"/>
+                <input class="input-large span10" name="user_password" id="password" type="password" placeholder="type password"/>
               </div>
               <div class="clearfix"></div>
               
@@ -77,6 +101,7 @@
                 <button type="submit" class="btn btn-primary">Login</button>
               </div>
               <div class="clearfix"></div>
+            </fieldset>
           </form>
           <hr>
           <h3>Forgot Password?</h3>

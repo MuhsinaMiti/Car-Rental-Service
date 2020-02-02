@@ -40,20 +40,38 @@
             <div class="header_widgets">
               <div class="circle_icon"> <i class="fa fa-envelope" aria-hidden="true"></i> </div>
               <p class="uppercase_text">For Support Mail us : </p>
-              <a href="mailto:info@example.com">carrental.com</a> </div>
+              <a href="mailto:info@example.com">contact@rentcar.com</a> </div>
             <div class="header_widgets">
               <div class="circle_icon"> <i class="fa fa-phone" aria-hidden="true"></i> </div>
               <p class="uppercase_text">Service Helpline Call Us: </p>
-              <a href="tel:00-0000-0000-0">+00-0000-0000-0</a> </div>
-            <div class="social-follow">
-              <ul>
-                <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-              </ul>
-            </div>
+              <a href="tel:00-0000-0000-0">+11-123-456-786</a> </div>
+
+              <?php
+                  $customer_id=$this->session->userdata('customer_id');
+                  if($customer_id)
+                  {
+
+                  ?>
+
+                  <div class="login_btn"> <a href="<?php echo base_url("customer-logout");?>" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal">Logout</a>
+                 <!-- <li><a href=""><?php echo $this->session->userdata('customer_name');?></a></li>--> 
+                  </div>
+
+               <?php }
+               else{
+
+               
+               ?>
+               <div class="login_btn"> <a href="<?php echo base_url("customer-login");?>" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal">Login</a> </div>
+
+             <?php } ?>
+               
+              
+                  
+
+               
+
+           
             
         </div>
       </div>
@@ -69,33 +87,28 @@
       <div class="header_wrap">
         <div class="user_login">
           <ul>
-            <li class="dropdown"> <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i>
-              <ul class="dropdown-menu">
+            <li class="dropdown"> <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"> <?php echo $this->session->userdata('customer_name');?></i>
+             <!-- <ul class="dropdown-menu">
                 <li><a href="profile-settings.html">Profile Settings</a></li>
                 <li><a href="Update-Password.html">Update Password</a></li>
                 <li><a href="My-Booking.html">My Booking</a></li>
                 <li><a href="Post-a-Testimonial.html">Post a Testimonial</a></li>
                 <li><a href="My-Testimonial.html">My Testimonial</a></li>
                 <li><a href="#">Sign Out</a></li>
-              </ul>
+              </ul>-->
+            </a>
             </li>
           </ul>
         </div>
-        <div class="header_search">
-          <div id="search_toggle"><i class="fa fa-search" aria-hidden="true"></i></div>
-          <form action="#" method="get" id="header-search-form">
-            <input type="text" placeholder="Search..." class="form-control">
-            <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-          </form>
-        </div>
+       
       </div>
+
       <div class="collapse navbar-collapse" id="navigation">
         <ul class="nav navbar-nav">
           <li><a href="<?php echo base_url()?>">Home</a></li>
-          <li><a href="<?php echo base_url();?>welcome/about_us">About Us</a></li>
-          <li><a href="car-listing.html">Car Listing</a></li>
-          <li><a href="faqs.html">FAQs</a></li>
-          <li><a href="contact-us.html">Contact Us</a></li>
+          <li><a href="<?php echo base_url('about-us')?>">About Us</a></li>
+          <li><a href="<?php echo base_url('car-lisitng')?>">Car Listing</a></li>
+          <li><a href="<?php echo base_url('contact-us')?>">Contact Us</a></li>
         </ul>
           
   <!-- Navigation end --> 
@@ -112,7 +125,7 @@
           <div class="banner_content">
             <h1>Find the right car for you.</h1>
             <p>We have more than a thousand cars for you to choose. </p>
-            <a href="#" class="btn">Read More <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
+            <a href="<?php echo base_url('car-lisitng')?>" class="btn">Start Your Journey <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
         </div>
       </div>
     </div>
@@ -135,20 +148,43 @@
     <div class="container">
       <div class="row">
 
-        <div class="col-md-6">
-          <h6>About Us</h6>
+        <div class="col-md-3">
+          <h6>Useful Links</h6>
           <ul>
 
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">FAQs</a></li>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">Terms of use</a></li>
-            <li><a href="#">Admin Login</a></li>
+            <li><a href="<?php echo base_url()?>">Home</a></li>
+            <li><a href="<?php echo base_url('about-us')?>">About Us</a></li>
+            <li><a href="<?php echo base_url('contact-us')?>">Contact Us</a></li>
+            
           </ul>
+
+
         </div>
 
+        <div class="col-md-3">
+          <h6>Choose Car </h6>
+          <ul>
+            <li><a href="<?php echo base_url('car-lisitng')?>">Car Listing</a></li>
+            <li><a href="<?php echo base_url()?>">Recent Car</a></li>
+            
+          </ul>
 
-       <div class="col-md-3 col-sm-6">
+
+        </div>
+
+        <div class="col-md-3">
+          <h6>Admin </h6>
+          <ul>
+
+            <li><a href="<?php echo base_url('admin')?>">Admin Login</a></li>
+          </ul>
+
+
+        </div>
+      
+
+
+     <!--  <div class="col-md-3 col-sm-6">
           <h6>Subscribe Newsletter</h6>
           <div class="newsletter-form">
             <form method="post">
@@ -159,14 +195,14 @@
             </form>
             <p class="subscribed-text">*We send great deals and latest auto news to our subscribed users every week.</p>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
   <div class="footer-bottom">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 col-md-push-6 text-right">
+        <div class="col-md-6">
           <div class="footer_widget">
             <p>Connect with Us:</p>
             <ul>
@@ -176,6 +212,7 @@
               <li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
               <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
             </ul>
+
           </div>
         </div>
 
