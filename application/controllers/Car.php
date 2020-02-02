@@ -3,17 +3,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Car extends CI_Controller {
 
-	function __construct(){
-		parent::__construct();
+  function __construct(){
+    parent::__construct();
 
-		$this->load->model('car_model');
-	}
+    $this->load->model('car_model');
+  }
 
-	//show add car form
-	//save car data
-	//edit car data
-	//update car data
-	//delete car
+  //show add car form
+  //save car data
+  //edit car data
+  //update car data
+  //delete car
 
 
 
@@ -75,51 +75,51 @@ function update_location (){
 
 
 
-	//------------ brand ---------------------
+  //------------ brand ---------------------
 
 
-	function show_add_brand_form(){
+  function show_add_brand_form(){
 
-		$data['admin_maincontent'] = $this->load->view('admin/admin_pages/add_brand_form','',TRUE);
-		$this->load->view('admin/admin_master',$data);
+    $data['admin_maincontent'] = $this->load->view('admin/admin_pages/add_brand_form','',TRUE);
+    $this->load->view('admin/admin_master',$data);
 
-		}
+    }
 
   function save_brand(){
 
-		$this->car_model->save_brand();
-		$this->show_all_brand();
+    $this->car_model->save_brand();
+    $this->show_all_brand();
 
-		}
+    }
 
    function show_all_brand(){
 
-		$brand_data ['all_brand']= $this->car_model->get_all_brand();
+    $brand_data ['all_brand']= $this->car_model->get_all_brand();
         $data['admin_maincontent'] = $this->load->view('admin/admin_pages/all_brands',$brand_data,TRUE);
-		$this->load->view('admin/admin_master',$data);
-		}
+    $this->load->view('admin/admin_master',$data);
+    }
 
 
   function change_brand_status($brand_id,$status){
 
-  	$this->car_model->change_brand_status($brand_id,$status);
-  	redirect('all-brand');
-		
+    $this->car_model->change_brand_status($brand_id,$status);
+    redirect('all-brand');
+    
 
 
-		
-		}
+    
+    }
 
 function edit_brand($brand_id){
 
-	$data['brand_data'] = $this->car_model->get_brand_detail($brand_id);
-	$data['admin_maincontent'] = $this->load->view('admin/admin_pages/edit_brand_form',$data,TRUE);
+  $data['brand_data'] = $this->car_model->get_brand_detail($brand_id);
+  $data['admin_maincontent'] = $this->load->view('admin/admin_pages/edit_brand_form',$data,TRUE);
     $this->load->view('admin/admin_master', $data);
 
 
 
 
-	}
+  }
 
 function update_brand (){
 
@@ -137,8 +137,8 @@ function add_car(){
     $data['brand_info'] = $this->car_model->get_all_active_brand();
     $data['fuel_info'] = $this->car_model->get_all_active_fuel();
     $data['location_info'] = $this->car_model->get_all_active_location();
-	$data['admin_maincontent'] = $this->load->view('admin/admin_pages/add_car_form',$data,TRUE);
-	$this->load->view('admin/admin_master',$data);
+  $data['admin_maincontent'] = $this->load->view('admin/admin_pages/add_car_form',$data,TRUE);
+  $this->load->view('admin/admin_master',$data);
 }
 
 
@@ -154,13 +154,13 @@ function upload_car_image(){
 
      if($this->upload->do_upload('car_image')){
 
-     	$data = $this->upload->data();
-     	$image_path = "uploads/$data[file_name]";//base_url();
-     	return $image_path;
+      $data = $this->upload->data();
+      $image_path = "uploads/$data[file_name]";//base_url();
+      return $image_path;
      }else{
 
-     	$error = $this->upload->display_errors();
-     	print_r($error);
+      $error = $this->upload->display_errors();
+      print_r($error);
      }
 
 
@@ -185,10 +185,10 @@ function upload_car_image(){
 
 public function manage_car(){
 
-	$data=array();
-	$data['all_car']=$this->car_model->select_all_car();
+  $data=array();
+  $data['all_car']=$this->car_model->select_all_car();
     $data['admin_maincontent'] =  $this->load->view('admin/admin_pages/manage_car',$data,TRUE);
-	$this->load->view('admin/admin_master',$data);
+  $this->load->view('admin/admin_master',$data);
 }
 
 public function car_published($car_id){
@@ -196,34 +196,34 @@ public function car_published($car_id){
        $this->car_model->car_published_by_id($car_id);
        redirect('manage-car');
 
-	}
+  }
 public function car_unpublished($car_id){
 
        $this->car_model->car_unpublished_by_id($car_id);
        redirect('manage-car');
 
-	}
+  }
 
-	public function car_delete($car_id){
+  public function car_delete($car_id){
 
        $this->car_model->car_delete_by_id($car_id);
        redirect('manage-car');
 
-	}
+  }
 
-	public function car_edit($car_id){
+  public function car_edit($car_id){
 
     $data=array();
     $data['brand_info'] = $this->car_model->get_all_active_brand();
     $data['fuel_info'] = $this->car_model->get_all_active_fuel();
     $data['location_info'] = $this->car_model->get_all_active_location();
     $data['car_info'] = $this->car_model->car_info_by_id($car_id);
-	$data['admin_maincontent'] = $this->load->view('admin/admin_pages/edit_car_form',$data,TRUE);
-	$this->load->view('admin/admin_master',$data);
+  $data['admin_maincontent'] = $this->load->view('admin/admin_pages/edit_car_form',$data,TRUE);
+  $this->load->view('admin/admin_master',$data);
 
-	}
+  }
 
-	public function update_car(){
+  public function update_car(){
      
      echo'<pre>';
      print_r($_FILES);
@@ -250,7 +250,7 @@ public function car_unpublished($car_id){
        $this->session->set_userdata($sdata);
        $car_id=$this->input->post('car_id',true);
        redirect('car-edit/'.$car_id);
-	}
+  }
 
 }
 
@@ -258,8 +258,8 @@ public function car_unpublished($car_id){
    // $data=array();
     //$data['brand_data'] = $this->car_model->get_all_active_brand('car_brand');
     //$data['fuel_data'] = $this->car_model->get_all_active_fuel('car_fuel');
-	//$this->load->view('pages/car_listing',$data);
-	//$this->load->view('master',$data);
+  //$this->load->view('pages/car_listing',$data);
+  //$this->load->view('master',$data);
 //}
 
 function getRecords(){
@@ -288,46 +288,46 @@ function getRecords(){
 
 function show_add_fuel_form(){
 
-		$data['admin_maincontent'] = $this->load->view('admin/admin_pages/add_fuel_form','',TRUE);
-		$this->load->view('admin/admin_master',$data);
+    $data['admin_maincontent'] = $this->load->view('admin/admin_pages/add_fuel_form','',TRUE);
+    $this->load->view('admin/admin_master',$data);
 
-		}
+    }
 
   function save_fuel(){
 
-		$this->car_model->save_fuel();
-		$this->show_all_fuel();
+    $this->car_model->save_fuel();
+    $this->show_all_fuel();
 
-		}
+    }
 
    function show_all_fuel(){
 
-		$fuel_data ['all_fuel']= $this->car_model->get_all_fuel();
+    $fuel_data ['all_fuel']= $this->car_model->get_all_fuel();
         $data['admin_maincontent'] = $this->load->view('admin/admin_pages/all_fuel',$fuel_data,TRUE);
-		$this->load->view('admin/admin_master',$data);
-		}
+    $this->load->view('admin/admin_master',$data);
+    }
 
 
   function change_fuel_status($fuel_id,$status){
 
-  	$this->car_model->change_fuel_status($fuel_id,$status);
-  	redirect('all-fuel');
-		
+    $this->car_model->change_fuel_status($fuel_id,$status);
+    redirect('all-fuel');
+    
 
 
-		
-		}
+    
+    }
 
 function edit_fuel($fuel_id){
 
-	$data['fuel_data'] = $this->car_model->get_fuel_detail($fuel_id);
-	$data['admin_maincontent'] = $this->load->view('admin/admin_pages/edit_fuel_form',$data,TRUE);
+  $data['fuel_data'] = $this->car_model->get_fuel_detail($fuel_id);
+  $data['admin_maincontent'] = $this->load->view('admin/admin_pages/edit_fuel_form',$data,TRUE);
     $this->load->view('admin/admin_master', $data);
 
 
 
 
-	}
+  }
 
 function update_fuel (){
 
