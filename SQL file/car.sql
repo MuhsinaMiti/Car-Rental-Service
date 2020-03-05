@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2020 at 04:20 PM
+-- Generation Time: Mar 05, 2020 at 04:30 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.6
 
@@ -128,7 +128,7 @@ INSERT INTO `tbl_customer` (`customer_id`, `customer_name`, `email_address`, `pa
 (13, 'Muhsina Tabassum Miti', 'miti@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 1, '', 'no'),
 (20, 'M', 'm@yahoo.com', '202cb962ac59075b964b07152d234b70', 1, '', 'no'),
 (21, 'Brishti ', 'brishti@gmail.com', '202cb962ac59075b964b07152d234b70', 1, '', 'no'),
-(24, 'Muhsina Miti', 'muhsinatabassum@gamil.com', '202cb962ac59075b964b07152d234b70', 1, '', 'yes');
+(24, 'Muhsina Miti', 'muhsinatabassummiti@gmail.com\r\n', '202cb962ac59075b964b07152d234b70', 1, '', 'yes');
 
 -- --------------------------------------------------------
 
