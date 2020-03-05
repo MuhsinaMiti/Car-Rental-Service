@@ -24,15 +24,15 @@ class Customer extends CI_Controller {
 
 
 
-	public function index()
+  public function index()
 
-	{    
+  {    
          $data=array();
         $data['title']="customer";
         $data['banner']='';
-		    $data['recent_car'] = '';
-		    $data['Fun_facts'] = '';
-		    $data['testimonial'] =$this->load->view('pages/customer_registration','',true);
+        $data['recent_car'] = '';
+        $data['Fun_facts'] = '';
+        $data['testimonial'] =$this->load->view('pages/customer_registration','',true);
         $this->load->view('master',$data);
 
   }
@@ -131,7 +131,7 @@ class Customer extends CI_Controller {
   if($this->form_validation->run())
   
 
-	{    
+  {    
       /* $customer_id =  $this->customer_model->save_customer_info();
        $sdata=array();
        $sdata['customer_name']=$this->input->post('customer_name');
@@ -293,9 +293,9 @@ if ($verify === true){
    }
       print_r( $car_data);*/  
 
-		    $data['recent_car'] = $this->load->view('pages/booking',$data,true);
-		    $data['Fun_facts'] = '';
-		    $data['testimonial'] ='';
+        $data['recent_car'] = $this->load->view('pages/booking',$data,true);
+        $data['Fun_facts'] = '';
+        $data['testimonial'] ='';
         $this->load->view('master',$data);
   }
 

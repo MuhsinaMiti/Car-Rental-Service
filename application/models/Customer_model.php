@@ -33,7 +33,7 @@ class Customer_model extends CI_Model{
 
 
 
-	/*public function save_customer_info(){
+  /*public function save_customer_info(){
       
      $data=array();
      $data['customer_name']=$this->input->post('customer_name');
@@ -51,7 +51,7 @@ class Customer_model extends CI_Model{
 
 
 
-	} 
+  } 
 
 */
 
@@ -112,7 +112,7 @@ class Customer_model extends CI_Model{
   }*/
  
 
-	public function select_customer_info_by_id($customer_id){
+  public function select_customer_info_by_id($customer_id){
    
       $customer_info=$this->db->select('*')
                      ->from ('tbl_customer')

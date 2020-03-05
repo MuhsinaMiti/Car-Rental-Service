@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 06, 2020 at 07:09 PM
+-- Generation Time: Mar 05, 2020 at 04:20 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.6
 
@@ -36,6 +36,7 @@ CREATE TABLE `tbl_booking` (
   `email_address` varchar(100) NOT NULL,
   `mobile_number` varchar(11) NOT NULL,
   `car_delivery_address` text NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `days` int(5) NOT NULL,
   `order_date_time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -44,13 +45,10 @@ CREATE TABLE `tbl_booking` (
 -- Dumping data for table `tbl_booking`
 --
 
-INSERT INTO `tbl_booking` (`booking_id`, `customer_id`, `car_id`, `customer_name`, `email_address`, `mobile_number`, `car_delivery_address`, `days`, `order_date_time`) VALUES
-(33, 13, 45, 'Muhsina Tabassum Miti', 'miti@gmail.com', '', '', 0, '2020-02-03 05:21:17'),
-(34, 13, 46, 'Muhsina Tabassum Miti', 'miti@gmail.com', '1112222', 'Nurani 6/A R/A ,Subid Bazar', 3, '2020-02-06 07:15:34'),
-(35, 13, 48, 'Muhsina Tabassum Miti', 'miti@gmail.com', '12133123', 'Nurani 6/A R/A ,Subid Bazar', 5, '2020-02-06 08:05:53'),
-(36, 13, 48, 'Muhsina Tabassum Miti', 'miti@gmail.com', '1123213', 'Nurani 6/A R/A ,Subid Bazar', 3, '2020-02-06 08:09:56'),
-(37, 13, 46, 'Muhsina Tabassum Miti', 'miti@gmail.com', '11112', 'Nurani 6/A R/A ,Subid Bazar', 3, '2020-02-06 08:46:38'),
-(38, 13, 48, 'Muhsina Tabassum Miti', 'miti@gmail.com', '123123', 'Nurani 6/A R/A ,Subid Bazar', 2, '2020-02-06 16:54:16');
+INSERT INTO `tbl_booking` (`booking_id`, `customer_id`, `car_id`, `customer_name`, `email_address`, `mobile_number`, `car_delivery_address`, `date`, `days`, `order_date_time`) VALUES
+(39, 13, 40, ' Miti', 'miti@gmail.com', '2123114', 'address', '2020-03-05 15:14:46', 5, '2020-02-07 08:39:44'),
+(40, 13, 45, 'Miti', 'miti@gmail.com', '323423423', 'address', '2020-03-05 15:15:23', 11, '2020-02-07 08:52:13'),
+(41, 31, 46, 'Miti', 'miti@gmail.com', '2123131', 'address', '2020-03-05 15:15:39', 10, '2020-02-07 19:42:25');
 
 -- --------------------------------------------------------
 
@@ -98,10 +96,13 @@ CREATE TABLE `tbl_car` (
 --
 
 INSERT INTO `tbl_car` (`car_id`, `car_name`, `price_per_day`, `car_overview`, `car_brand`, `car_fuel`, `car_location`, `car_image`, `recent_car`, `car_status`, `booking_status`) VALUES
-(40, 'Mazda CX-5 SX, V6, ABS, Sunroof', 124, '<div xss=\"removed\"><font face=\"Arial, Verdana\"><span xss=\"removed\">Lorem ipsum dolor sit amet, usu in erat mazim mediocritatem, est at utinam doming pertinax. No nec indoctum consequuntur, id sed porro mundi graecis. Vim ne dicta molestie oporteat, ne sea hinc feugait, pri eu fastidii eligendi. Nam te dico dicam iisque, id convenire argumentum cum, sit ne primis appetere dignissim.</span></font></div><div xss=\"removed\"><font face=\"Arial, Verdana\"><span xss=\"removed\"><br></span></font></div><div xss=\"removed\"><font face=\"Arial, Verdana\"><span xss=\"removed\">An quas doctus fabulas cum. Te cum quodsi melius tincidunt, sea liber erant legere id. Cum ei autem melius, mundi omnium pro ne, eirmod intellegam nec id. Ex aperiam alienum nostrum usu, stet putant percipit ut mei. Unum fierent senserit nam et.</span></font></div><div xss=\"removed\"><font face=\"Arial, Verdana\"><span xss=\"removed\"><br></span></font></div><div xss=\"removed\"><font face=\"Arial, Verdana\"><span xss=\"removed\">Sit at ubique debitis philosophia, te per errem eirmod eleifend. Eam fabulas nominati definiebas te. No nulla laudem accommodare ius, quas quidam pri an. Omnis movet ne duo, cu pro clita verear voluptua. Cu platonem explicari voluptatum pro, an habeo homero iudicabit eum. Indoctum democritum definitionem ex sea, semper consequuntur ut ius, mei integre eruditi intellegebat id.</span></font></div><div xss=\"removed\"><br></div>', 2, 1, 2, 'uploads/featured-img-16.jpg', 0, 2, 1),
+(40, 'Mazda CX-5 SX, V6, ABS, Sunroof', 1240, '<div xss=\"removed\"><font face=\"Arial, Verdana\"><span xss=\"removed\">Lorem ipsum dolor sit amet, usu in erat mazim mediocritatem, est at utinam doming pertinax. No nec indoctum consequuntur, id sed porro mundi graecis. Vim ne dicta molestie oporteat, ne sea hinc feugait, pri eu fastidii eligendi. Nam te dico dicam iisque, id convenire argumentum cum, sit ne primis appetere dignissim.</span></font></div><div xss=\"removed\"><font face=\"Arial, Verdana\"><span xss=\"removed\"><br></span></font></div><div xss=\"removed\"><font face=\"Arial, Verdana\"><span xss=\"removed\">An quas doctus fabulas cum. Te cum quodsi melius tincidunt, sea liber erant legere id. Cum ei autem melius, mundi omnium pro ne, eirmod intellegam nec id. Ex aperiam alienum nostrum usu, stet putant percipit ut mei. Unum fierent senserit nam et.</span></font></div><div xss=\"removed\"><font face=\"Arial, Verdana\"><span xss=\"removed\"><br></span></font></div><div xss=\"removed\"><font face=\"Arial, Verdana\"><span xss=\"removed\">Sit at ubique debitis philosophia, te per errem eirmod eleifend. Eam fabulas nominati definiebas te. No nulla laudem accommodare ius, quas quidam pri an. Omnis movet ne duo, cu pro clita verear voluptua. Cu platonem explicari voluptatum pro, an habeo homero iudicabit eum. Indoctum democritum definitionem ex sea, semper consequuntur ut ius, mei integre eruditi intellegebat id.</span></font></div><div xss=\"removed\"><br></div>', 2, 1, 2, 'uploads/featured-img-16.jpg', 0, 1, 1),
 (45, 'Maserati QUATTROPORTE 1,6', 1600, '<div xss=\"removed\"><font face=\"Arial, Verdana\">Lorem ipsum dolor sit amet, usu in erat mazim mediocritatem, est at utinam doming pertinax. No nec indoctum consequuntur, id sed porro mundi graecis. Vim ne dicta molestie oporteat, ne sea hinc feugait, pri eu fastidii eligendi. Nam te dico dicam iisque, id convenire argumentum cum, sit ne primis appetere dignissim.</font></div><div xss=\"removed\"><font face=\"Arial, Verdana\"><br></font></div><div xss=\"removed\"><font face=\"Arial, Verdana\">An quas doctus fabulas cum. Te cum quodsi melius tincidunt, sea liber erant legere id. Cum ei autem melius, mundi omnium pro ne, eirmod intellegam nec id. Ex aperiam alienum nostrum usu, stet putant percipit ut mei. Unum fierent senserit nam et.</font></div><div xss=\"removed\"><font face=\"Arial, Verdana\"><br></font></div><div xss=\"removed\"><font face=\"Arial, Verdana\">Sit at ubique debitis philosophia, te per errem eirmod eleifend. Eam fabulas nominati definiebas te. No nulla laudem accommodare ius, quas quidam pri an. Omnis movet ne duo, cu pro clita verear voluptua. Cu platonem explicari voluptatum pro, an habeo homero iudicabit eum. Indoctum democritum definitionem ex sea, semper consequuntur ut ius, mei integre eruditi intellegebat id.</font></div><div xss=\"removed\"><br xss=\"removed\"></div>', 2, 1, 2, 'uploads/featured-img-21.jpg', 1, 1, 1),
-(46, 'Maserati QUATTROPORTE 1,6', 1500, '<div xss=\"removed\"><font face=\"Arial, Verdana\">Lorem ipsum dolor sit amet, usu in erat mazim mediocritatem, est at utinam doming pertinax. No nec indoctum consequuntur, id sed porro mundi graecis. Vim ne dicta molestie oporteat, ne sea hinc feugait, pri eu fastidii eligendi. Nam te dico dicam iisque, id convenire argumentum cum, sit ne primis appetere dignissim.</font></div><div xss=\"removed\"><font face=\"Arial, Verdana\"><br></font></div><div xss=\"removed\"><font face=\"Arial, Verdana\">An quas doctus fabulas cum. Te cum quodsi melius tincidunt, sea liber erant legere id. Cum ei autem melius, mundi omnium pro ne, eirmod intellegam nec id. Ex aperiam alienum nostrum usu, stet putant percipit ut mei. Unum fierent senserit nam et.</font></div><div xss=\"removed\"><font face=\"Arial, Verdana\"><br></font></div><div xss=\"removed\"><font face=\"Arial, Verdana\">Sit at ubique debitis philosophia, te per errem eirmod eleifend. Eam fabulas nominati definiebas te. No nulla laudem accommodare ius, quas quidam pri an. Omnis movet ne duo, cu pro clita verear voluptua. Cu platonem explicari voluptatum pro, an habeo homero iudicabit eum. Indoctum democritum definitionem ex sea, semper consequuntur ut ius, mei integre eruditi intellegebat id.</font></div><div xss=\"removed\"><br xss=\"removed\"></div>', 1, 1, 1, 'uploads/featured-img-31.jpg', 1, 1, 1),
-(48, 'Mazda CX-5 SX, V6, ABS, Sunroof', 1500, '<div xss=\"removed\"><font face=\"Arial, Verdana\">Lorem ipsum dolor sit amet, usu in erat mazim mediocritatem, est at utinam doming pertinax. No nec indoctum consequuntur, id sed porro mundi graecis. Vim ne dicta molestie oporteat, ne sea hinc feugait, pri eu fastidii eligendi. Nam te dico dicam iisque, id convenire argumentum cum, sit ne primis appetere dignissim.</font></div><div xss=\"removed\"><font face=\"Arial, Verdana\"><br></font></div><div xss=\"removed\"><font face=\"Arial, Verdana\">An quas doctus fabulas cum. Te cum quodsi melius tincidunt, sea liber erant legere id. Cum ei autem melius, mundi omnium pro ne, eirmod intellegam nec id. Ex aperiam alienum nostrum usu, stet putant percipit ut mei. Unum fierent senserit nam et.</font></div><div xss=\"removed\"><font face=\"Arial, Verdana\"><br></font></div><div xss=\"removed\"><font face=\"Arial, Verdana\">Sit at ubique debitis philosophia, te per errem eirmod eleifend. Eam fabulas nominati definiebas te. No nulla laudem accommodare ius, quas quidam pri an. Omnis movet ne duo, cu pro clita verear voluptua. Cu platonem explicari voluptatum pro, an habeo homero iudicabit eum. Indoctum democritum definitionem ex sea, semper consequuntur ut ius, mei integre eruditi intellegebat id.</font></div><div xss=\"removed\"><br xss=removed></div>', 2, 1, 1, 'uploads/featured-img-17.jpg', 1, 1, 0);
+(46, 'Maserati QUATTROPORTE 1,6', 1500, '<div xss=\"removed\"><font face=\"Arial, Verdana\">Lorem ipsum dolor sit amet, usu in erat mazim mediocritatem, est at utinam doming pertinax. No nec indoctum consequuntur, id sed porro mundi graecis. Vim ne dicta molestie oporteat, ne sea hinc feugait, pri eu fastidii eligendi. Nam te dico dicam iisque, id convenire argumentum cum, sit ne primis appetere dignissim.</font></div><div xss=\"removed\"><font face=\"Arial, Verdana\"><br></font></div><div xss=\"removed\"><font face=\"Arial, Verdana\">An quas doctus fabulas cum. Te cum quodsi melius tincidunt, sea liber erant legere id. Cum ei autem melius, mundi omnium pro ne, eirmod intellegam nec id. Ex aperiam alienum nostrum usu, stet putant percipit ut mei. Unum fierent senserit nam et.</font></div><div xss=\"removed\"><font face=\"Arial, Verdana\"><br></font></div><div xss=\"removed\"><font face=\"Arial, Verdana\">Sit at ubique debitis philosophia, te per errem eirmod eleifend. Eam fabulas nominati definiebas te. No nulla laudem accommodare ius, quas quidam pri an. Omnis movet ne duo, cu pro clita verear voluptua. Cu platonem explicari voluptatum pro, an habeo homero iudicabit eum. Indoctum democritum definitionem ex sea, semper consequuntur ut ius, mei integre eruditi intellegebat id.</font></div><div xss=\"removed\"><br xss=\"removed\"></div>', 1, 1, 1, 'uploads/featured-img-31.jpg', 1, 1, 2),
+(55, 'Mazda CX-5 SX, V6, ABS, Sunroof', 1500, '<div xss=\"removed\" xss=removed><font face=\"Arial, Verdana\">Lorem ipsum dolor sit amet, usu in erat mazim mediocritatem, est at utinam doming pertinax. No nec indoctum consequuntur, id sed porro mundi graecis. Vim ne dicta molestie oporteat, ne sea hinc feugait, pri eu fastidii eligendi. Nam te dico dicam iisque, id convenire argumentum cum, sit ne primis appetere dignissim.</font></div><div xss=\"removed\" xss=removed><font face=\"Arial, Verdana\"><br></font></div><div xss=\"removed\" xss=removed><font face=\"Arial, Verdana\">An quas doctus fabulas cum. Te cum quodsi melius tincidunt, sea liber erant legere id. Cum ei autem melius, mundi omnium pro ne, eirmod intellegam nec id. Ex aperiam alienum nostrum usu, stet putant percipit ut mei. Unum fierent senserit nam et.</font></div><div xss=\"removed\" xss=removed><font face=\"Arial, Verdana\"><br></font></div><div xss=\"removed\" xss=removed><font face=\"Arial, Verdana\">Sit at ubique debitis philosophia, te per errem eirmod eleifend. Eam fabulas nominati definiebas te. No nulla laudem accommodare ius, quas quidam pri an. Omnis movet ne duo, cu pro clita verear voluptua. Cu platonem explicari voluptatum pro, an habeo homero iudicabit eum. Indoctum democritum definitionem ex sea, semper consequuntur ut ius, mei integre eruditi intellegebat id.</font></div><div xss=\"removed\" xss=removed><br xss=removed></div>', 3, 1, 1, 'uploads/recent-car-4.jpg', 1, 1, 2),
+(56, 'Mazda CX-5 SX, V6, ABS, Sunroof', 1500, '<div xss=\"removed\" xss=removed><font face=\"Arial, Verdana\">Lorem ipsum dolor sit amet, usu in erat mazim mediocritatem, est at utinam doming pertinax. No nec indoctum consequuntur, id sed porro mundi graecis. Vim ne dicta molestie oporteat, ne sea hinc feugait, pri eu fastidii eligendi. Nam te dico dicam iisque, id convenire argumentum cum, sit ne primis appetere dignissim.</font></div><div xss=\"removed\" xss=removed><font face=\"Arial, Verdana\"><br></font></div><div xss=\"removed\" xss=removed><font face=\"Arial, Verdana\">An quas doctus fabulas cum. Te cum quodsi melius tincidunt, sea liber erant legere id. Cum ei autem melius, mundi omnium pro ne, eirmod intellegam nec id. Ex aperiam alienum nostrum usu, stet putant percipit ut mei. Unum fierent senserit nam et.</font></div><div xss=\"removed\" xss=removed><font face=\"Arial, Verdana\"><br></font></div><div xss=\"removed\" xss=removed><font face=\"Arial, Verdana\">Sit at ubique debitis philosophia, te per errem eirmod eleifend. Eam fabulas nominati definiebas te. No nulla laudem accommodare ius, quas quidam pri an. Omnis movet ne duo, cu pro clita verear voluptua. Cu platonem explicari voluptatum pro, an habeo homero iudicabit eum. Indoctum democritum definitionem ex sea, semper consequuntur ut ius, mei integre eruditi intellegebat id.</font></div><div xss=\"removed\" xss=removed><br xss=removed></div>', 1, 2, 0, 'uploads/recent-car-5.jpg', 1, 1, 2),
+(57, 'Mazda CX-5 SX, V6, ABS, Sunroof', 1500, '<div xss=\"removed\" xss=removed><font face=\"Arial, Verdana\">Lorem ipsum dolor sit amet, usu in erat mazim mediocritatem, est at utinam doming pertinax. No nec indoctum consequuntur, id sed porro mundi graecis. Vim ne dicta molestie oporteat, ne sea hinc feugait, pri eu fastidii eligendi. Nam te dico dicam iisque, id convenire argumentum cum, sit ne primis appetere dignissim.</font></div><div xss=\"removed\" xss=removed><font face=\"Arial, Verdana\"><br></font></div><div xss=\"removed\" xss=removed><font face=\"Arial, Verdana\">An quas doctus fabulas cum. Te cum quodsi melius tincidunt, sea liber erant legere id. Cum ei autem melius, mundi omnium pro ne, eirmod intellegam nec id. Ex aperiam alienum nostrum usu, stet putant percipit ut mei. Unum fierent senserit nam et.</font></div><div xss=\"removed\" xss=removed><font face=\"Arial, Verdana\"><br></font></div><div xss=\"removed\" xss=removed><font face=\"Arial, Verdana\">Sit at ubique debitis philosophia, te per errem eirmod eleifend. Eam fabulas nominati definiebas te. No nulla laudem accommodare ius, quas quidam pri an. Omnis movet ne duo, cu pro clita verear voluptua. Cu platonem explicari voluptatum pro, an habeo homero iudicabit eum. Indoctum democritum definitionem ex sea, semper consequuntur ut ius, mei integre eruditi intellegebat id.</font></div><div xss=\"removed\" xss=removed><br xss=removed></div>', 3, 2, 2, 'uploads/recent-car-21.jpg', 1, 1, 2),
+(58, 'Maserati QUATTROPORTE 1,6', 1600, '<div xss=\"removed\" xss=removed><font face=\"Arial, Verdana\">Lorem ipsum dolor sit amet, usu in erat mazim mediocritatem, est at utinam doming pertinax. No nec indoctum consequuntur, id sed porro mundi graecis. Vim ne dicta molestie oporteat, ne sea hinc feugait, pri eu fastidii eligendi. Nam te dico dicam iisque, id convenire argumentum cum, sit ne primis appetere dignissim.</font></div><div xss=\"removed\" xss=removed><font face=\"Arial, Verdana\"><br></font></div><div xss=\"removed\" xss=removed><font face=\"Arial, Verdana\">An quas doctus fabulas cum. Te cum quodsi melius tincidunt, sea liber erant legere id. Cum ei autem melius, mundi omnium pro ne, eirmod intellegam nec id. Ex aperiam alienum nostrum usu, stet putant percipit ut mei. Unum fierent senserit nam et.</font></div><div xss=\"removed\" xss=removed><font face=\"Arial, Verdana\"><br></font></div><div xss=\"removed\" xss=removed><font face=\"Arial, Verdana\">Sit at ubique debitis philosophia, te per errem eirmod eleifend. Eam fabulas nominati definiebas te. No nulla laudem accommodare ius, quas quidam pri an. Omnis movet ne duo, cu pro clita verear voluptua. Cu platonem explicari voluptatum pro, an habeo homero iudicabit eum. Indoctum democritum definitionem ex sea, semper consequuntur ut ius, mei integre eruditi intellegebat id.</font></div><div xss=\"removed\" xss=removed><br xss=\"removed\" xss=removed></div>', 3, 3, 2, 'uploads/recent-car-31.jpg', 1, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -114,22 +115,20 @@ CREATE TABLE `tbl_customer` (
   `customer_name` varchar(50) NOT NULL,
   `email_address` varchar(100) NOT NULL,
   `password` varchar(32) NOT NULL,
-  `customer_status` tinyint(3) NOT NULL DEFAULT 1
+  `customer_status` tinyint(3) NOT NULL DEFAULT 1,
+  `verification_key` varchar(250) NOT NULL,
+  `is_email_verified` enum('no','yes') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_customer`
 --
 
-INSERT INTO `tbl_customer` (`customer_id`, `customer_name`, `email_address`, `password`, `customer_status`) VALUES
-(13, 'Muhsina Tabassum Miti', 'miti@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 1),
-(20, 'M', 'm@yahoo.com', '202cb962ac59075b964b07152d234b70', 1),
-(21, 'Brishti ', 'brishti@gmail.com', '202cb962ac59075b964b07152d234b70', 1),
-(22, 'miti', 'muhsinatabassummiti123@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 1),
-(23, 'Muhsina Tabassum Miti', 'muhsinatabassummiti@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 1),
-(24, 'Muhsina Tabassum Miti', 'm@m.com', '202cb962ac59075b964b07152d234b70', 1),
-(25, 'Mitii', 'muhsinatabassummiti@gmail.com', '202cb962ac59075b964b07152d234b70', 1),
-(26, 'Muhsina Tabassum Miti', 'muhsinatabassummiti@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 1);
+INSERT INTO `tbl_customer` (`customer_id`, `customer_name`, `email_address`, `password`, `customer_status`, `verification_key`, `is_email_verified`) VALUES
+(13, 'Muhsina Tabassum Miti', 'miti@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 1, '', 'no'),
+(20, 'M', 'm@yahoo.com', '202cb962ac59075b964b07152d234b70', 1, '', 'no'),
+(21, 'Brishti ', 'brishti@gmail.com', '202cb962ac59075b964b07152d234b70', 1, '', 'no'),
+(24, 'Muhsina Miti', 'muhsinatabassum@gamil.com', '202cb962ac59075b964b07152d234b70', 1, '', 'yes');
 
 -- --------------------------------------------------------
 
@@ -170,7 +169,8 @@ CREATE TABLE `tbl_location` (
 
 INSERT INTO `tbl_location` (`location_id`, `location_name`, `location_status`) VALUES
 (1, 'Sylhet', 1),
-(2, 'Dhaka', 1);
+(2, 'Dhaka', 1),
+(3, 'Chittogong', 1);
 
 -- --------------------------------------------------------
 
@@ -253,7 +253,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_booking`
 --
 ALTER TABLE `tbl_booking`
-  MODIFY `booking_id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `booking_id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `tbl_brand`
@@ -265,13 +265,13 @@ ALTER TABLE `tbl_brand`
 -- AUTO_INCREMENT for table `tbl_car`
 --
 ALTER TABLE `tbl_car`
-  MODIFY `car_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `car_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `tbl_customer`
 --
 ALTER TABLE `tbl_customer`
-  MODIFY `customer_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `customer_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `tbl_fuel`
@@ -283,7 +283,7 @@ ALTER TABLE `tbl_fuel`
 -- AUTO_INCREMENT for table `tbl_location`
 --
 ALTER TABLE `tbl_location`
-  MODIFY `location_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `location_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
