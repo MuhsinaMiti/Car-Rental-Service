@@ -763,15 +763,16 @@ ul.messages li .message {
 	.statbox .number {
 		font-size: 40px;
 		position: absolute;
-		top: 10px;
-		right: 10px;
+		top: 30px;
+		left: 100px;
 	}
 	
 	.statbox .title {
-		font-size: 16px;
+		font-size: 20px;
 		position: absolute;
-		top: 50px;
-		right: 10px;
+		top: 70px;
+		left: 70px;
+		
 	}
 
 	.statbox .footer {
