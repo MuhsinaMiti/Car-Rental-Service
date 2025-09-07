@@ -139,7 +139,7 @@ Car-Rental-Service/
 ### Dashboard
 
 ![Admin Login](screenshots/Admin_login.jpg)
-![Dashboard](screenshots/Admin_dashboard.jpg)
+![Dashboard](screenshots/admin_dashboard.jpg)
 ![Admin Register](screenshots/Admin_Register.jpg)
 ![Add brand](screenshots/Admin_add_brand.jpg)
 ![Manage Brand](screenshots/Admin_manage_brand.jpg)
