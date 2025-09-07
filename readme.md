@@ -136,29 +136,48 @@ Car-Rental-Service/
 
 ## Screenshots
 
-### Dashboard
+## Admin View
 
+### Admin Login
 ![Admin Login](screenshots/Admin_login.jpg)
+### Dashboard
 ![Dashboard](screenshots/admin_dashboard.jpg)
+### Admin Register
 ![Admin Register](screenshots/Admin_Register.jpg)
+### Add brand
 ![Add brand](screenshots/Admin_add_brand.jpg)
+### Manage Brand
 ![Manage Brand](screenshots/Admin_manage_brand.jpg)
+### Add Car
 ![Add Car](screenshots/Admin_add_car.jpg)
+### Manage Car
 ![Manage Car](screenshots/Admin_manage_car.jpg)
+### Add Fuel
 ![Add Fuel](screenshots/Admin_add_fuel.jpg)
+### Manage Fuel
 ![Manage Fuel](screenshots/Admin_manage_fuel.jpg)
+### Add Location
 ![Add Location](screenshots/Admin_add_location.jpg)
+### Manage Location
 ![Manage Location](screenshots/Admin_manage_location.jpg)
+### Manage Booking
 ![Manage Booking](screenshots/Admin_manage_booking.jpg)
 
 
-### Customer View
+## Customer View
+
+### Booking Car
 ![Booking Car](screenshots/Booking_car.jpg)
+### Car Detail Page
 ![Car Detail Page](screenshots/Car_detail_page.jpg)
+### Car Listing Page
 ![Car Listing Page](screenshots/car_listing_page.jpg)
+### Customer Login Page
 ![Customer Login Page](screenshots/Customer_Login_page.jpg)
+### Home Page
 ![Home Page](screenshots/home_page_1.jpg)
 ![Home Page](screenshots/home_page_2.jpg)
+### Recent Car
 ![Recent Car](screenshots/Recent_car.jpg)
 
 ---
