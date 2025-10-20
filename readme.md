@@ -1,7 +1,7 @@
 # Car Rental Service
 
 ## Overview
-This project is a comprehensive **Car Rental Service web application** developed using the CodeIgniter framework. It provides a full-featured system for customers to browse and rent vehicles, alongside a robust administrative dashboard for managing the fleet, user accounts, and bookings.
+This project is a comprehensive **Car Rental System web application** developed using the CodeIgniter framework. It provides a full-featured system for customers to browse and rent vehicles, alongside a robust administrative dashboard for managing the fleet, user accounts, and bookings.
 
 ---
 
